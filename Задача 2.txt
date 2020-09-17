@@ -1,0 +1,72 @@
+#include <iostream>
+
+#include <ctime>
+
+#include <stdlib.h>
+
+using namespace std;
+	
+	void Print(char arr[9])
+	{
+	int count = 0;
+	cout << "_________\n";
+	for (size_t i = 0; i < 9; i++)
+	{
+ 
+		cout << "|" << arr[i] << "|";
+ 
+		count++;
+		if (count == 3 || count == 6)
+			cout << endl;
+	}
+	cout << "\n_________\n";
+}
+ 
+void Play(char token, char arr[9])
+{
+	int number = 0;
+	while (true)
+	{
+		cout << "Enter number: ";
+		cin >> number;
+		if (number > 0 && number <= 9 && arr[number - 1] != 'X' && arr[number - 1] != 'O')
+		{
+			arr[number - 1] = token;
+			break;
+		}
+		else
+		{
+			cout << "Error\n";
+		}
+		
+	}
+ 
+	}
+
+ 
+ 
+int main()
+{
+	char arr[9] = { '1','2','3','4','5','6','7','8','9' };
+	int counter=0;
+	while (true)
+	{
+		Print(arr);
+		counter++;
+		if(counter%2==0){
+		    
+		    Play('O', arr);
+		    
+		}
+		
+		else{
+		    
+		    Play('X', arr);
+		    
+		}
+		
+	}
+
+    return 0;
+    
+}
